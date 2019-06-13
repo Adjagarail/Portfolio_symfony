@@ -5,11 +5,13 @@ easy_admin:
             class: App\Entity\Competences
             list:
                 fields:
+                   - { property: 'id'}
                    - { property: 'Titre' }
                    - { property: 'Image', type: 'image', base_path: '%app.path.Compt_images%' }
             # ...
             show:
                 fields:
+                   - { property: 'id'}
                    - { property: 'Titre' }
                    - { property: 'Image', type: 'image', base_path: '%app.path.Compt_images%' }
             form:
@@ -21,11 +23,13 @@ easy_admin:
             class: App\Entity\Hobbies
             list:
                 fields:
+                   - { property: 'id'}
                    - { property: 'Titre' }
                    - { property: 'Image', type: 'image', base_path: '%app.path.Hobb_images%' }
 
             show:
                 fields:
+                   - { property: 'id'}
                    - { property: 'Titre' }
                    - { property: 'Image', type: 'image', base_path: '%app.path.Hobb_images%' }
             form:
