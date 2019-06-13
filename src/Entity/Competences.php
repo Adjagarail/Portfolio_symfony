@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\CompetencesRepository")
+ * @Vich\Uploadable
  */
 class Competences
 {
@@ -24,9 +27,21 @@ class Competences
     private $Titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
      */
-    private $Images;
+    private $Image;
+    /**
+     * @Vich\UploadableField(mapping="Compt_images", fileNameProperty="Image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -45,15 +60,31 @@ class Competences
         return $this;
     }
 
-    public function getImages(): ?string
+    public function getImage(): ?string
     {
-        return $this->Images;
+        return $this->Image;
     }
 
-    public function setImages(string $Images): self
+    public function setImage(?string $Image): self
     {
-        $this->Images = $Images;
+        $this->Image = $Image;
 
         return $this;
+    }
+    public function setImageFile(File $Image = null)
+    {
+        $this->imageFile = $Image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($Image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 }
