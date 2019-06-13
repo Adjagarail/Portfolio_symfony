@@ -18,7 +18,7 @@ easy_admin:
                 fields:
                    - { property: 'Titre' }
                    - { property: 'imageFile', type: 'file' }
-        
+        # List the entity class name you want to manage        
         Hobbies:
             class: App\Entity\Hobbies
             list:
@@ -36,3 +36,4 @@ easy_admin:
                 fields:
                    - { property: 'Titre' }
                    - { property: 'imageFile', type: 'file' }
+        # List the entity class name you want to manage
