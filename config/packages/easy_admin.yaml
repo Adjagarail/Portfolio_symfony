@@ -16,4 +16,19 @@ easy_admin:
                 fields:
                    - { property: 'Titre' }
                    - { property: 'imageFile', type: 'file' }
-#        - App\Entity\User
+        
+        Hobbies:
+            class: App\Entity\Hobbies
+            list:
+                fields:
+                   - { property: 'Titre' }
+                   - { property: 'Image', type: 'image', base_path: '%app.path.Hobb_images%' }
+
+            show:
+                fields:
+                   - { property: 'Titre' }
+                   - { property: 'Image', type: 'image', base_path: '%app.path.Hobb_images%' }
+            form:
+                fields:
+                   - { property: 'Titre' }
+                   - { property: 'imageFile', type: 'file' }
