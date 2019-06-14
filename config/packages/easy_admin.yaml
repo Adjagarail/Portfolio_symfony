@@ -90,3 +90,25 @@ easy_admin:
                     - { property: 'Date' }
                     - { property: 'Diplome' }
                     - { property: 'Ecole' }
+
+        # List the entity class name you want to manage
+        Experience:
+            class: App\Entity\Experience
+            list:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'Date' }
+                    - { property: 'Poste' }
+                    - { property: 'Structure' }
+            
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'Date' }
+                    - { property: 'Poste' }
+                    - { property: 'Structure' }
+            form:
+                fields:
+                    - { property: 'Date' }
+                    - { property: 'Poste' }
+                    - { property: 'Structure' }
