@@ -8,6 +8,7 @@ parameters:
     app.path.Compt_images: /uploads/images/Competences
     app.path.Hobb_images: /uploads/images/Hobbies
     app.path.Article_images: /uploads/images/Article
+    app.path.Profil_images: /uploads/images/Profil
 
 services:
     # default configuration for services in *this* file
