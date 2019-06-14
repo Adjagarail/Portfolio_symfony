@@ -4,6 +4,10 @@ easy_admin:
       date: 'd/m/Y'
       time: 'H:i'
       datetime: 'd/m/Y H:i:s'
+    design:
+        form_theme:
+            - '@EasyAdmin/form/bootstrap_4.html.twig'
+            - '@VichUploader/Form/fields.html.twig'
 
     entities:
         # List the entity class name you want to manage
@@ -112,3 +116,34 @@ easy_admin:
                     - { property: 'Date' }
                     - { property: 'Poste' }
                     - { property: 'Structure' }
+
+        # List the entity class name you want to manage
+        Contact:
+            class: App\Entity\Contact
+            list:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'Telephone' }
+                    - { property: 'Email' }
+                    - { property: 'Facebook', type: 'image' }
+                    - { property: 'Twitter' }
+                    - { property: 'Linkedin' }
+                    - { property: 'Github' }
+            
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'Telephone' }
+                    - { property: 'Email' }
+                    - { property: 'Facebook', type: 'image' }
+                    - { property: 'Twitter' }
+                    - { property: 'Linkedin' }
+                    - { property: 'Github' }
+            form:
+                fields:
+                    - { property: 'Telephone' }
+                    - { property: 'Email' }
+                    - { property: 'Facebook' }
+                    - { property: 'Twitter' }
+                    - { property: 'Linkedin' }
+                    - { property: 'Github' }
